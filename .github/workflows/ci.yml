@@ -1,28 +1,30 @@
-name: .NET CI with TDD
+name: CI ShoppingCart C#
 
 on:
   push:
-    branches: [ "main", "master" ]
+    branches: [ main, master ]
   pull_request:
-    branches: [ "main", "master" ]
+    branches: [ main, master ]
 
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v4
+    - name: Copiar repositorio
+      uses: actions/checkout@v4
+
+    - name: Configurar .NET SDK
+      uses: actions/setup-node@v4
       with:
-        dotnet-version: '8.0.x'
-        
-    - name: Restore dependencies
-      run: dotnet restore
+        dotnet-version: '8.0.x' # o la versión de .NET que estés usando
+
+    - name: Restaurar dependencias
+      run: dotnet restore ShoppingCartSolution.sln
+
+    - name: Compilar solución
+      run: dotnet build ShoppingCartSolution.sln --no-restore
+
+    - name: Ejecutar pruebas unitarias (TDD)
+      run: dotnet test ShoppingCartSolution.sln --no-build --verbosity normal
       
-    - name: Build project
-      run: dotnet build --no-restore
-      
-    - name: Run TDD Unit Tests
-      run: dotnet test --no-build --verbosity normal
