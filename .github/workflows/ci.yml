@@ -2,29 +2,27 @@ name: CI ShoppingCart C#
 
 on:
   push:
-    branches: [ main, master ]
+    branches: [ main ]
   pull_request:
-    branches: [ main, master ]
+    branches: [ main ]
 
 jobs:
-  build-and-test:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Copiar repositorio
-      uses: actions/checkout@v4
+    - uses: actions/checkout@v4
 
-    - name: Configurar .NET SDK
-      uses: actions/setup-node@v4
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: '8.0.x' # o la versión de .NET que estés usando
+        dotnet-version: '8.0.x'
 
-    - name: Restaurar dependencias
+    - name: Restore dependencies
       run: dotnet restore ShoppingCartSolution.sln
 
-    - name: Compilar solución
+    - name: Build project
       run: dotnet build ShoppingCartSolution.sln --no-restore
 
-    - name: Ejecutar pruebas unitarias (TDD)
+    - name: Run tests
       run: dotnet test ShoppingCartSolution.sln --no-build --verbosity normal
-      
