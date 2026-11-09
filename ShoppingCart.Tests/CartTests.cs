@@ -1,6 +1,3 @@
-using Xunit;
-using ShoppingCart;
-
 namespace ShoppingCart.Tests
 {
     public class CartTests
@@ -76,3 +73,4 @@ namespace ShoppingCart.Tests
         }
     }
 }
+
