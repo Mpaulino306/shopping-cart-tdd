@@ -19,10 +19,10 @@ jobs:
         dotnet-version: '8.0.x'
 
     - name: Restore dependencies
-      run: dotnet restore ShoppingCartSolution.sln
+      run: dotnet restore ShoppingCartSolution.slnx
 
     - name: Build project
-      run: dotnet build ShoppingCartSolution.sln --no-restore
+      run: dotnet build ShoppingCartSolution.slnx --no-restore
 
     - name: Run tests
-      run: dotnet test ShoppingCartSolution.sln --no-build --verbosity normal
+      run: dotnet test ShoppingCartSolution.slnx --no-build --verbosity normal
