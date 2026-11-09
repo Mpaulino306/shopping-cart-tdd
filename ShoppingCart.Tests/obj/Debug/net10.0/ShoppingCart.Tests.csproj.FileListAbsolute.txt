@@ -98,3 +98,4 @@ C:\Users\maria\OneDrive\Desktop\ShoppingCartproject\ShoppingCart.Tests\obj\Debug
 C:\Users\maria\OneDrive\Desktop\ShoppingCartproject\ShoppingCart.Tests\obj\Debug\net10.0\ShoppingCart.Tests.pdb
 C:\Users\maria\OneDrive\Desktop\ShoppingCartproject\ShoppingCart.Tests\obj\Debug\net10.0\ShoppingCart.Tests.genruntimeconfig.cache
 C:\Users\maria\OneDrive\Desktop\ShoppingCartproject\ShoppingCart.Tests\obj\Debug\net10.0\ref\ShoppingCart.Tests.dll
+C:\Users\maria\OneDrive\Desktop\ShoppingCartproject\ShoppingCart.Tests\obj\Debug\net10.0\ShoppingCart.Tests.sourcelink.json

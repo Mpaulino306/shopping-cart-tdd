@@ -1,36 +1,52 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ShoppingCart.Core
+namespace ShoppingCart
 {
-    public record CartItem(string ProductId, string Name, decimal Price, int Quantity);
-
-    public class ShoppingCart
+    public class CartItem
     {
-        private readonly List<CartItem> _items = new();
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public decimal Price { get; set; }
+        public int Quantity { get; set; }
+    }
+
+    public class Cart
+    {
+        private readonly List<CartItem> _items = new List<CartItem>();
+
         public IReadOnlyCollection<CartItem> Items => _items.AsReadOnly();
 
-        public void AddItem(CartItem item)
+        public void AddItem(int id, string name, decimal price, int quantity = 1)
         {
-            if (item.Quantity <= 0)
-                throw new ArgumentException("La cantidad debe ser mayor a cero.");
-
-            var existingItem = _items.FirstOrDefault(i => i.ProductId == item.ProductId);
+            var existingItem = _items.FirstOrDefault(i => i.Id == id);
             if (existingItem != null)
             {
-                _items.Remove(existingItem);
-                _items.Add(existingItem with { Quantity = existingItem.Quantity + item.Quantity });
+                existingItem.Quantity += quantity;
             }
             else
             {
-                _items.Add(item);
+                _items.Add(new CartItem { Id = id, Name = name, Price = price, Quantity = quantity });
             }
         }
 
-        public decimal GetSubTotal()
+        public void RemoveItem(int id)
+        {
+            var item = _items.FirstOrDefault(i => i.Id == id);
+            if (item != null)
+            {
+                _items.Remove(item);
+            }
+        }
+
+        public decimal GetTotalPrice()
         {
             return _items.Sum(i => i.Price * i.Quantity);
+        }
+
+        public int GetTotalItemsCount()
+        {
+            return _items.Sum(i => i.Quantity);
         }
     }
 }

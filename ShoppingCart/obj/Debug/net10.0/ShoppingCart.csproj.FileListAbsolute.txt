@@ -9,3 +9,4 @@ C:\Users\maria\OneDrive\Desktop\ShoppingCartproject\ShoppingCart\obj\Debug\net10
 C:\Users\maria\OneDrive\Desktop\ShoppingCartproject\ShoppingCart\obj\Debug\net10.0\refint\ShoppingCart.dll
 C:\Users\maria\OneDrive\Desktop\ShoppingCartproject\ShoppingCart\obj\Debug\net10.0\ShoppingCart.pdb
 C:\Users\maria\OneDrive\Desktop\ShoppingCartproject\ShoppingCart\obj\Debug\net10.0\ref\ShoppingCart.dll
+C:\Users\maria\OneDrive\Desktop\ShoppingCartproject\ShoppingCart\obj\Debug\net10.0\ShoppingCart.sourcelink.json
