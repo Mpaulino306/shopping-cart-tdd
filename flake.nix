@@ -15,7 +15,7 @@
     in {
       default = pkgs.mkShell {
         packages = with pkgs; [
-          dotnet-sdk
+          dotnet-sdk_10
           csharp-ls
           figlet
         ];
